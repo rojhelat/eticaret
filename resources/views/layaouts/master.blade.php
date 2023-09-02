@@ -9,7 +9,7 @@
 </head>
 
 <body id="commerce">
-
+@include('layaouts.partiasl.navbar')
 @yield('content')
 @include('layaouts.partiasl.footer')
 
