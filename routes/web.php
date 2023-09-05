@@ -21,7 +21,7 @@ use \App\Http\Controllers\OdemeController;
 */
 
 Route::get('/',[AnasayfaController::class,'index'])->name('anasayfa');
-Route::get('/kategori',[KategoriController::class,'index'])->name('kategori');
+Route::get('/kategori/{slug_kategori}',[KategoriController::class,'index'])->name('kategori');
 Route::get('/urun',[UrunController::class,'index'])->name('urun');
 Route::get('/sepet',[SepetController::class,'index'])->name('sepet');
 Route::get('/odeme',[OdemeController::class,'index'])->name('odeme');
