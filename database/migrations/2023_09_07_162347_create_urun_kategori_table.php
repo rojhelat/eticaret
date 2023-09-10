@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('urun_kategori', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('kategori_id')->unsigned();
+            $table->integer('urun_id')->unsigned();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->nullable();
+
+            $table->foreign('urun_id')->references('id')->on('urun')->onDelete('cascade');
+            $table->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade');
+
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('urun_kategori');
+    }
+};
