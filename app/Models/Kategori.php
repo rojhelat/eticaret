@@ -13,4 +13,8 @@ class Kategori extends Model
     protected $table ='kategori';
     public $timestamps = true;
     protected $fillable = ['kategori_adi','slug'];
+    public function urunler(){
+
+        return $this->belongsToMany('App\Models\Urun','urun_kategori');
+    }
 }
