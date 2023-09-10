@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('sifre',60);
             $table->string('aktivasyon_anahtari',60)->nullable();
             $table->boolean('aktif_mi')->default(0);
+            $table->rememberToken();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
             $table->softDeletes();

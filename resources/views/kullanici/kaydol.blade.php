@@ -11,13 +11,10 @@
 
                         <form class="form-horizontal" role="form" method="POST" action="{{route('kullanici.kaydol')}}">
                             {{csrf_field()}}
-                            <div class="form-group has-error">
+                            <div class="form-group ">
                                 <label for="name" class="col-md-4 control-label">Adı Soyad</label>
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control" name="adsoyad" value="{{old('adsoyad')}}" required autofocus>
-                                    <span class="help-block">
-                                        <strong>Ad Soyad alanı boş bırakılamaz</strong>
-                                    </span>
                                 </div>
                             </div>
 

@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Kullanici;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -13,14 +14,15 @@ class KullaniciKayitMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $kullanici;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Kullanici $kullanici)
     {
-        //
+        $this->kullanici=$kullanici;
     }
 
     /**
@@ -31,7 +33,7 @@ class KullaniciKayitMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Kullanici Mail',
+            subject: 'Kullanici Kayıt Mail',
         );
     }
 
@@ -43,7 +45,8 @@ class KullaniciKayitMail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'view.name',
+            view: 'mail.kullanici_kayit_mail',
+            with: ['kullanici'=>$this->kullanici]
         );
     }
 

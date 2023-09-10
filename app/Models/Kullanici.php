@@ -15,12 +15,19 @@ class Kullanici extends Authenticatable
     protected $table='kullanici';
     use SoftDeletes;
 
+
+    public function getAuthPassword()
+    {
+        return $this->sifre;
+    }
+
     protected $fillable = [
         'adsoyad',
         'email',
         'sifre',
         'aktivasyon_anahtari',
-        'aktif_mi'
+        'aktif_mi',
+
     ];
 
 

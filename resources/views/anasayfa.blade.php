@@ -1,6 +1,11 @@
 @extends('layaouts.master')
 @section('title','Anasayfa')
 @section('content')
+
+
+    @include('message.alert')
+
+
     <div class="container">
         <div class="row">
             <div class="col-md-3">
