@@ -26,7 +26,19 @@ Route::get('/kategori/{slug_kategori}',[KategoriController::class,'index'])->nam
 Route::get('/urun/{urun_slug}',[UrunController::class,'index'])->name('urun');
 Route::post('/ara',[UrunController::class,'ara'])->name('urun_ara');
 Route::get('/ara',[UrunController::class,'ara'])->name('urun_ara');
-Route::get('/sepet',[SepetController::class,'index'])->name('sepet');
+
+
+Route::group(['prefix'=>'sepet'],function (){
+
+    Route::get('/',[SepetController::class,'index'])->name('sepet');
+    Route::post('/ekle',[SepetController::class,'ekle']);
+    Route::get('/ekle',[SepetController::class,'ekle'])->name('sepet.ekle');
+    Route::delete('/kaldir/{rowid}',[SepetController::class,'kaldir'])->name('sepet.kaldir');
+    Route::delete('/bosalt',[SepetController::class,'bosalt'])->name('sepet.bosalt');
+    Route::patch('/guncelle/{rowid}',[SepetController::class,'guncelle'])->name('sepet.guncelle');
+
+});
+
 
 Route::group(['middleware'=>'auth'],function (){
     Route::get('/odeme',[OdemeController::class,'index'])->name('odeme');

@@ -82,7 +82,9 @@ class KullaniciController extends Controller
            return redirect()->to('/')
                ->with('message','Kaydınız aktifleştirilmiştir ')
                ->with('message_tur','success');
-              }
+        }else{
+            return redirect('404');
+        }
 
 
     }
